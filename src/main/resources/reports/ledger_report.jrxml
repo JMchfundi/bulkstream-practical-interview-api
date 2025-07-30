@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+    name="LedgerReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20"
+    rightMargin="20" topMargin="20" bottomMargin="20" uuid="123e4567-e89b-12d3-a456-426614174000">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record" />
+    <parameter name="createdBy" class="java.lang.String" />
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <field name="date" class="java.time.LocalDate" />
+    <field name="description" class="java.lang.String" />
+    <field name="debit" class="java.math.BigDecimal" />
+    <field name="credit" class="java.math.BigDecimal" />
+    <field name="balance" class="java.math.BigDecimal" />
+    <background>
+        <band splitType="Stretch" />
+    </background>
+    <title>
+        <band height="79" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="555" height="30"
+                    uuid="a1b2c3d4-e5f6-7890-1234-567890abcdef" />
+                <textElement textAlignment="Center">
+                    <font size="18" isBold="true" />
+                </textElement>
+                <textFieldExpression><![CDATA["Ledger Report"]]></textFieldExpression>
+            </textField>
+            <textField pattern="yyyy-MM-dd">
+                <reportElement x="0" y="0" width="100" height="30"
+                    uuid="0a1b2c3d-e4f5-6789-0123-456789abcd" />
+                <textElement verticalAlignment="Middle" />
+                <textFieldExpression><![CDATA[$F{date} != null ? new java.text.SimpleDateFormat("yyyy-MM-dd").format($F{date}) : " "]]> </textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="455" y="40" width="100" height="20"
+                    uuid="c3d4e5f6-a7b8-9012-3456-7890abcdef" />
+                <textElement textAlignment="Right" />
+                <textFieldExpression><![CDATA["Created by: " + $P{createdBy}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="35" splitType="Stretch">
+            <textField pattern="yyyy-MM-dd">
+                <reportElement x="0" y="0" width="100" height="30"
+                    uuid="0a1b2c3d-e4f5-6789-0123-456789abcd">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                        value="a7a7a7a7-b8b8-c9c9-d0d0-e1e1e1e1e1e1" />
+                </reportElement>
+                <textElement verticalAlignment="Middle" />
+                <textFieldExpression><![CDATA[$F{date} == null ? "" : new java.text.SimpleDateFormat("yyyy-MM-dd").format(java.sql.Date.valueOf($F{date}))]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="100" y="0" width="200" height="30"
+                    uuid="b2c3d4e5-f6a7-8901-2345-67890abcdef">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                        value="bbbbbbbb-cccc-dddd-eeee-ffffffffffff" />
+                </reportElement>
+                <textElement verticalAlignment="Middle">
+                    <font isBold="true" />
+                </textElement>
+                <text><![CDATA[Description]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="300" y="0" width="80" height="30"
+                    uuid="c3d4e5f6-a7b8-9012-3456-7890abcdef">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                        value="cccccccc-dddd-eeee-ffff-000000000000" />
+                </reportElement>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font isBold="true" />
+                </textElement>
+                <text><![CDATA[Debit]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="380" y="0" width="80" height="30"
+                    uuid="d4e5f6a7-b8c9-0123-4567-890abcdef0">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                        value="dddddddd-eeee-ffff-0000-111111111111" />
+                </reportElement>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font isBold="true" />
+                </textElement>
+                <text><![CDATA[Credit]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="460" y="0" width="95" height="30"
+                    uuid="e5f6a7b8-c9d0-1234-5678-90abcdef01">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                        value="eeeeeeee-ffff-0000-1111-222222222222" />
+                </reportElement>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font isBold="true" />
+                </textElement>
+                <text><![CDATA[Balance]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="30" splitType="Stretch">
+            <textField pattern="yyyy-MM-dd">
+                <reportElement x="0" y="0" width="100" height="30"
+                    uuid="0a1b2c3d-e4f5-6789-0123-456789abcd">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                        value="a7a7a7a7-b8b8-c9c9-d0d0-e1e1e1e1e1e1" />
+                </reportElement>
+                <textElement verticalAlignment="Middle" />
+                <textFieldExpression><![CDATA[$F{date} == null ? "" : new java.text.SimpleDateFormat("yyyy-MM-dd").format(java.sql.Date.valueOf($F{date}))]]></textFieldExpression>
+
+            </textField>
+            <textField>
+                <reportElement x="100" y="0" width="200" height="30"
+                    uuid="1b2c3d4e-f5a6-7890-1234-567890abcde">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                        value="bbbbbbbb-cccc-dddd-eeee-ffffffffffff" />
+                </reportElement>
+                <textElement verticalAlignment="Middle" />
+                <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+            </textField>
+            <textField pattern="#,##0.00">
+                <reportElement x="300" y="0" width="80" height="30"
+                    uuid="2c3d4e5f-f6a7-8901-2345-67890abcde0">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                        value="cccccccc-dddd-eeee-ffff-000000000000" />
+                </reportElement>
+                <textElement textAlignment="Right" verticalAlignment="Middle" />
+                <textFieldExpression><![CDATA[$F{debit}]]></textFieldExpression>
+            </textField>
+            <textField pattern="#,##0.00">
+                <reportElement x="380" y="0" width="80" height="30"
+                    uuid="3d4e5f6a-f7b8-9012-3456-7890abcde01">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                        value="dddddddd-eeee-ffff-0000-111111111111" />
+                </reportElement>
+                <textElement textAlignment="Right" verticalAlignment="Middle" />
+                <textFieldExpression><![CDATA[$F{credit}]]></textFieldExpression>
+            </textField>
+            <textField pattern="#,##0.00">
+                <reportElement x="460" y="0" width="95" height="30"
+                    uuid="4e5f6a7b-b8c9-0123-4567-890abcde012">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                        value="eeeeeeee-ffff-0000-1111-222222222222" />
+                </reportElement>
+                <textElement textAlignment="Right" verticalAlignment="Middle" />
+                <textFieldExpression><![CDATA[$F{balance}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <pageFooter>
+        <band height="30" splitType="Stretch">
+            <textField>
+                <reportElement x="455" y="0" width="100" height="30"
+                    uuid="5f6a7b8c-c9d0-1234-5678-90abcde0123" />
+                <textElement textAlignment="Right" verticalAlignment="Middle" />
+                <textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+            <textField evaluationTime="Report">
+                <reportElement x="355" y="0" width="100" height="30"
+                    uuid="6a7b8c9d-d0e1-2345-6789-0abcdef01234" />
+                <textElement textAlignment="Right" verticalAlignment="Middle" />
+                <textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+</jasperReport>
