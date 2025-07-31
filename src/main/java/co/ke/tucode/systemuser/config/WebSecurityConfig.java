@@ -85,10 +85,7 @@ public class WebSecurityConfig {
                         .allowedOrigins(
                                 "http://localhost:3000",
                                 "http://192.168.43.134:3000",
-                                "https://www.housing.tucode.co.ke",
-                                "https://www.capdo.org",
-                                "https://www.boreshamaisha.tucode.co.ke",
-                                "https://www.ebooks.tucode.co.ke")
+                                "https://black-cliff-01f21c510.1.azurestaticapps.net/")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // <-- CRUCIAL
                         .allowedHeaders("*") // <-- Allow all headers including Authorization
                         .allowCredentials(true);
